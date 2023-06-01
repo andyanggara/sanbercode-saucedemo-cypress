@@ -23,7 +23,7 @@ describe("Login Test", () => {
 
         cy.url().should("include", "/inventory.html");
         obj.clickMenu();
-        cy.get('a[id="logout_sidebar_link"]').should("be.visible");
+        obj.verLogoutButton();
     });
 
     it("Login with blank username and password", () => {

@@ -4,6 +4,7 @@ class Login {
     getLoginButton = '[data-test="login-button"]';
     getBurgerMenu = 'button[id="react-burger-menu-btn"]';
     getErrorMessage = '[data-test="error"]';
+    getLogoutButton = 'a[id="logout_sidebar_link"]';
 
     setUsername(username) {
         cy.get(this.getUsername).type(username);
@@ -23,6 +24,10 @@ class Login {
 
     verErrMessage(errMessage) {
         cy.get(this.getErrorMessage).should("have.text", errMessage);
+    }
+
+    verLogoutButton() {
+        cy.get(this.getLogoutButton).should("be.visible");
     }
 }
 
