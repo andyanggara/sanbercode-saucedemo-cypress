@@ -29,6 +29,12 @@ class Login {
     verLogoutButton() {
         cy.get(this.getLogoutButton).should("be.visible");
     }
+
+    successLogin() {
+        this.setUsername("standard_user");
+        this.setPassword("secret_sauce");
+        this.clickLogin();
+    }
 }
 
 export default Login;
