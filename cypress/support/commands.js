@@ -1,3 +1,4 @@
+import Login from "../pageObjects/login.cy";
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -11,6 +12,12 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
+const obj = new Login();
+Cypress.Commands.add("login", (username, password) => {
+    obj.setUsername(username);
+    obj.setPassword(password);
+    obj.clickLogin();
+});
 //
 //
 // -- This is a child command --

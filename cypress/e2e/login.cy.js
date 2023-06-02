@@ -17,9 +17,7 @@ describe("Login Test", () => {
     });
 
     it("Login with valid username and password", () => {
-        obj.setUsername(username);
-        obj.setPassword(password);
-        obj.clickLogin();
+        cy.login(username, password);
 
         cy.url().should("include", "/inventory.html");
         obj.clickMenu();
@@ -69,4 +67,14 @@ describe("Login Test", () => {
 
         obj.verErrMessage(lockUser);
     });
+
+    // it.only("test", () => {
+    //     cy.login(username, password);
+    // });
+
+    // it("test", () => {
+    //     obj.successLogin();
+    //     cy.get(".product_sort_container").select("za");
+    //     cy.get('[value="za"]').should("have.text", "Name (Z to A)");
+    // });
 });
